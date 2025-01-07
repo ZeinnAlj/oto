@@ -2,7 +2,7 @@
 
 expect << EOF
 
-spawn telnet 192.168.74.137 30004
+spawn telnet 192.168.91.136 30004
 expect "Mikrotik Login:"
 send "admin\r"
 

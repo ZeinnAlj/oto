@@ -64,9 +64,9 @@ sudo netplan apply
 echo "Menyiapkan konfigurasi DHCP server..."
 cat <<EOL | sudo tee /etc/dhcp/dhcpd.conf
 # Konfigurasi subnet untuk VLAN 10
-subnet 192.168.17.0 netmask 255.255.255.0 {
-    range 192.168.17.2 192.168.17.200;
-    option routers 192.168.17.1;
+subnet 192.168.36.0 netmask 255.255.255.0 {
+    range 192.168.36.2 192.168.36.200;
+    option routers 192.168.36.1;
     option subnet-mask 255.255.255.0;
     option domain-name-servers 8.8.8.8, 8.8.4.4;
     default-lease-time 600;
@@ -76,7 +76,7 @@ subnet 192.168.17.0 netmask 255.255.255.0 {
 # Konfigurasi Fix DHCP
 host fantasia {
   hardware ethernet 00:50:79:66:68:06;
-  fixed-address 192.168.17.10;
+  fixed-address 192.168.36.10;
 }
 EOL
 
@@ -110,7 +110,7 @@ sudo iptables -A OUTPUT -p tcp --dport 30004 -j ACCEPT
 echo "Restart DHCP Server..."
 sudo systemctl restart isc-dhcp-server
 
-sudo ip route add 192.168.200.0/24 via 192.168.17.2
+sudo ip route add 192.168.200.0/24 via 192.168.36.2
 
 echo "Konfigurasi Ubuntu Selesai"
 

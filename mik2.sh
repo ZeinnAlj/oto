@@ -22,7 +22,7 @@ expect ">"
 send "/ip address add address=192.168.200.1/24 interface=ether2\r"
 
 expect ">"
-send "/ip address add address=192.168.17.2/24 interface=ether1\r"
+send "/ip address add address=192.168.36.2/24 interface=ether1\r"
 
 expect ">"
 send "/ip pool add name=dhcp_pool ranges=192.168.200.2-192.168.200.200\r"
@@ -40,7 +40,7 @@ expect ">"
 send "/ip firewall nat add chain=srcnat out-interface=ether1 action=masquerade\r"
 
 expect ">"
-send "/ip route add gateway=192.168.17.1\r"
+send "/ip route add gateway=192.168.36.1\r"
 
 expect eof
 

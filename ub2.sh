@@ -37,7 +37,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt install -y iptables-persistent
 sudo ufw allow 30002/tcp
 sudo ufw allow 30004/tcp
 sudo ufw allow from 192.168.91.136 to any port 30002
-sudo ufw allow from 192.168.91.136 to any port 30004
+sudo ufw allow from 192.168.91.136 to any port 30003
 sudo ufw reload
 
 # Konfigurasi Pada Netplan
@@ -105,7 +105,7 @@ sudo sysctl -w net.ipv4.ip_forward=1
 echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
 sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 sudo iptables -A OUTPUT -p tcp --dport 30002 -j ACCEPT
-sudo iptables -A OUTPUT -p tcp --dport 30004 -j ACCEPT
+sudo iptables -A OUTPUT -p tcp --dport 30003 -j ACCEPT
 
 echo "Restart DHCP Server..."
 sudo systemctl restart isc-dhcp-server

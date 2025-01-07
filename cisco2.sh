@@ -22,7 +22,7 @@
     sleep 1
     echo "exit"
     sleep 1
-} | telnet 192.168.74.137 30002
+} | telnet 192.168.91.136 30002
 
 sleep 2
 

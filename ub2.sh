@@ -36,8 +36,8 @@ sudo apt install expect -y
 sudo DEBIAN_FRONTEND=noninteractive apt install -y iptables-persistent
 sudo ufw allow 30002/tcp
 sudo ufw allow 30004/tcp
-sudo ufw allow from 192.168.74.137 to any port 30002
-sudo ufw allow from 192.168.74.137 to any port 30004
+sudo ufw allow from 192.168.91.136 to any port 30002
+sudo ufw allow from 192.168.91.136 to any port 30004
 sudo ufw reload
 
 # Konfigurasi Pada Netplan
@@ -55,7 +55,7 @@ network:
      eth1.10:
        id: 10
        link: eth1
-       addresses: [192.168.17.1/24]
+       addresses: [192.168.36.1/24]
 EOF
 
 sudo netplan apply
